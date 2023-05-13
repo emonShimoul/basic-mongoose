@@ -14,7 +14,6 @@ app.use(express.json());
 // parse url encoded data
 app.use(express.urlencoded({ extended: true }));
 
-// app.get("/api/v1/user", userRoutes);
 app.use("/api/v1/user", userRoutes);
 
 export default app;
