@@ -18,7 +18,7 @@ app.get("/", (req: Request, res: Response, next: NextFunction) => {
     Step 1: Create a Interface
     Step 2: Create a Schema
     Step 3: Create a Model
-    Step 4: Database Query
+    Step 4: Database Query on Model
     */
 
   // creating a Interface
@@ -85,6 +85,29 @@ app.get("/", (req: Request, res: Response, next: NextFunction) => {
       required: true,
     },
   });
+  const User = model<IUser>("User", userSchema);
+
+  const createUserToDB = async () => {
+    const user = new User({
+      id: "778",
+      role: "student",
+      password: "abc123",
+      name: {
+        firstName: "Vijay",
+        lastName: "Devrakonda",
+      },
+      gender: "male",
+      email: "vijay@gmail.com",
+      contactNo: "0199999999",
+      emergencyContactNo: "01888888",
+      presentAddress: "Dhaka",
+      permanentAddress: "Khulna",
+    });
+    await user.save();
+    console.log(user);
+  };
+
+  createUserToDB();
 
   res.send("Hello World!");
   //   next();
