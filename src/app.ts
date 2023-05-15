@@ -17,3 +17,5 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/v1/user", userRoutes);
 
 export default app;
+
+// save = save() --> Method --> data validate --> schema
